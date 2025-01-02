@@ -1,0 +1,68 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+body{
+    background-color: rgb(31, 31, 31);
+}
+
+.card{
+        position: relative;
+        color: white;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        align-items: center;
+        justify-content: center;
+        width: 18rem;
+        margin: 17rem auto;
+        text-align: center;
+        border-radius: 10px;
+        background-color: rgb(54, 54, 54);
+        padding: 2.5rem;
+
+}
+
+.card p{
+    margin-top: 15px;
+    font-size: 40px
+}
+
+.card h1{
+    font-size: 35px;
+}
+
+@property --angle{
+    syntax: "<angle>";
+    initial-value: 0deg;
+    inherits: false;
+}
+
+.card::after, .card::before{
+    content: '';
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background-image: conic-gradient( from var(--angle),
+        red,green,rgb(212, 24, 24),orange);
+    top: 50%;
+    left: 50%;
+    translate: -50% -50%;
+    z-index: -1;
+    padding: 5px;
+    border-radius: 15px;
+    animation: 3s flex linear infinite;
+}
+
+.card::before{
+    filter: blur(2rem);
+    opacity: 0.7;
+}
+
+@keyframes flex {
+    from{
+        --angle:0deg;
+    }
+    to{
+        --angle:360deg
+    }
+    
+}
